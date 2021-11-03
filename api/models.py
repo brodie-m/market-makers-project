@@ -10,8 +10,8 @@ import random
 
 class ETF(models.Model):
     ticker = models.CharField(max_length=100)
-    current_price = models.DecimalField(decimal_places=3, max_digits=5)
-    previous_price = models.DecimalField(decimal_places=3, max_digits=5)
+    current_price = models.FloatField()
+    previous_price = models.FloatField()
     sigma = models.DecimalField(decimal_places=3, max_digits=5)
     all_prices = models.CharField(max_length=100000)
     
@@ -31,7 +31,4 @@ class ETF(models.Model):
         new_price = self.price(self.current_price, 1, 1)
         self.current_price = new_price
 
-prices=[]
-days=[]
-etf_1=ETF('facebook',5,5,0.1,'')
 

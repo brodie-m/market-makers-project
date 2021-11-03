@@ -2,7 +2,12 @@ from models import ETF
 
 from time import sleep
 
-etf_1 = ETF(5,5,1)
-print(etf_1.current_price)
-# def timer():
-    
+etfs = ETF.objects.all()
+
+while True:
+    sleep(5)
+    for etf in etfs:
+        etf.update_price()
+
+
+
